@@ -1,5 +1,7 @@
 # Marked
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/amio/marked.svg)](https://greenkeeper.io/)
+
 Markdown render service.
 
 ## Endpoint
