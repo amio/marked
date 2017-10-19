@@ -1,6 +1,6 @@
 # Marked
 
-Markdown render service.
+Micro service for markdown rendering (with [chjj/marked][marked]).
 
 ## Endpoint
 
@@ -22,7 +22,8 @@ Markdown render service.
 
 ## License
 
-MIT @ [Amio](author)
+MIT @ [Amio][author]
 
 [repo]:   https://github.com/amio/marked
+[marked]: https://github.com/chjj/marked
 [author]: https://github.com/amio
