@@ -13,6 +13,12 @@ Markdown render service.
       inlineCSS: '<CSSText>'
   }
   ```
+  returns html raw string.
+
+  tryout:
+  ```bash
+  curl -X POST -d '{"text": "hola"}' https://marked.now.sh
+  ```
 
 ## License
 
