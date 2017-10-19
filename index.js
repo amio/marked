@@ -46,7 +46,7 @@ function helmet (bodyHTML, { title = '', linkCSS, inlineCSS }) {
         ${bodyHTML}
       </body>
     </html>
-  `.replace(/\n\s+/g, '')
+  `
 }
 
 module.exports = endpoint
