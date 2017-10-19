@@ -11,6 +11,6 @@
   "license": "MIT",
   "dependencies": {
     "marked": "^0.3.6",
-    "micro": "^7.3.3"
+    "micro": "^9.0.0"
   }
 }
