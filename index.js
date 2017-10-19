@@ -1,6 +1,6 @@
 const fs = require('fs')
 const marked = require('marked')
-const { json, send } = require('micro')
+const micro = require('micro')
 
 const README = marked(fs.readFileSync('README.md', 'utf-8'))
 const IndexHTML = helmet(README, {
@@ -10,13 +10,13 @@ const IndexHTML = helmet(README, {
 
 const endpoint = async (req, res) => {
   if (req.method === 'POST' && req.url === '/') {
-    const { text, title, linkCSS, inlineCSS } = await json(req)
+    const { text, title, linkCSS, inlineCSS } = await micro.json(req)
 
     if (text) {
       res.setHeader('Content-Type', 'text/html; charset=utf-8')
       return helmet(marked(text), { title, linkCSS, inlineCSS })
     } else {
-      return send(res, 400, 'Bad Request')
+      return micro.send(res, 400, '"text" field is required')
     }
   }
 
@@ -42,10 +42,12 @@ function helmet (bodyHTML, { title = '', linkCSS, inlineCSS }) {
         ${linkStyle}
         ${inlineStyles}
       </head>
-      <body>${bodyHTML}</body>
+      <body>
+        ${bodyHTML}
+      </body>
     </html>
-  `
+  `.replace(/\n\s+/g, '')
 }
 
 module.exports = endpoint
-require('micro')(module.exports).listen(3000)
+micro(module.exports).listen(3000)
