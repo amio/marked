@@ -10,7 +10,7 @@
   "author": "Amio <amio.cn@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "marked": "^0.3.6",
-    "micro": "^9.0.0"
+    "marked": "^0.3.9",
+    "micro": "^9.0.2"
   }
 }
