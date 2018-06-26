@@ -1,6 +1,5 @@
 {
-  "name": "marked",
-  "version": "1.0.0",
+  "private": true,
   "description": "Markdown render service.",
   "repository": "amio/marked",
   "main": "index.js",
@@ -12,7 +11,7 @@
   "author": "Amio <amio.cn@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "marked": "^0.3.9",
-    "micro": "^9.0.2"
+    "marked": "^0.4.0",
+    "micro": "^9.3.2"
   }
 }
