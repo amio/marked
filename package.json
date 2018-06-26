@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "predeploy": "now rm marked --safe -T marked",
+    "predeploy": "now rm marked --safe -y -T marked",
     "deploy": "now -T marked && now alias -T marked"
   },
   "author": "Amio <amio.cn@gmail.com>",
