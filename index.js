@@ -22,10 +22,12 @@ const endpoint = async (req, res) => {
 
   if (req.method === 'GET') {
     switch (req.url) {
+      case '/':
+        return IndexHTML
       case '/favicon.ico':
         return ''
       default:
-        return IndexHTML
+        return 'Use POST request.'
     }
   }
 }
