@@ -5,7 +5,9 @@
   "repository": "amio/marked",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "predeploy": "now rm marked --safe -T marked",
+    "deploy": "now -T marked && now alias -T marked"
   },
   "author": "Amio <amio.cn@gmail.com>",
   "license": "MIT",

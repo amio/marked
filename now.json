@@ -3,5 +3,6 @@
     "md",
     "marked",
     "markdown"
-  ]
+  ],
+  "public": true
 }
