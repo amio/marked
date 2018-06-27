@@ -10,11 +10,11 @@ const IndexHTML = helmet(README, {
 
 const endpoint = async (req, res) => {
   if (req.method === 'POST' && req.url === '/') {
-    const { text, title, linkCSS, inlineCSS } = await micro.json(req)
+    const { text, title, linkCSS, inlineCSS, gaId } = await micro.json(req)
 
     if (text) {
       res.setHeader('Content-Type', 'text/html; charset=utf-8')
-      return helmet(marked(text), { title, linkCSS, inlineCSS })
+      return helmet(marked(text), { title, linkCSS, inlineCSS, gaId })
     } else {
       return micro.send(res, 400, '"text" field is required')
     }
@@ -32,9 +32,18 @@ const endpoint = async (req, res) => {
   }
 }
 
-function helmet (bodyHTML, { title = '', linkCSS, inlineCSS }) {
+function helmet (bodyHTML, { title = '', linkCSS, inlineCSS, gaId }) {
   const linkStyle = linkCSS ? `<link rel="stylesheet" href="${linkCSS}" />` : ''
   const inlineStyles = inlineCSS ? `<style>${inlineCSS}</style>` : ''
+  const googleAnalytics = gaId ? `
+    <script async src="https://www.googletagmanager.com/gtag/js?id=${gaId}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${gaId}');
+    </script>
+  ` : ''
 
   return `<!DOCTYPE html>
     <html>
@@ -43,6 +52,7 @@ function helmet (bodyHTML, { title = '', linkCSS, inlineCSS }) {
         <title>${title}</title>
         ${linkStyle}
         ${inlineStyles}
+        ${googleAnalytics}
       </head>
       <body>
         ${bodyHTML}
