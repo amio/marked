@@ -11,7 +11,7 @@
   "author": "Amio <amio.cn@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "marked": "^0.4.0",
+    "marked": "^4.0.10",
     "micro": "^9.3.2"
   }
 }
